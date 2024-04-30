@@ -358,8 +358,10 @@ def offline_splatting(config: dict):
         start=dataset_config["start"],
         end=dataset_config["end"],
         stride=dataset_config["stride"],
-        desired_height=dataset_config["desired_image_height_init"],
-        desired_width=dataset_config["desired_image_width_init"],
+        # desired_height=dataset_config["desired_image_height_init"],
+        # desired_width=dataset_config["desired_image_width_init"],
+        desired_height=dataset_config["desired_image_height"],
+        desired_width=dataset_config["desired_image_width"],
         device=device,
         relative_pose=True,
         ignore_bad=dataset_config["ignore_bad"],
@@ -387,7 +389,8 @@ def offline_splatting(config: dict):
         sequence=os.path.basename(dataset_config["sequence"]),
         start=dataset_config["start"],
         end=dataset_config["end"],
-        stride=dataset_config["eval_stride"],
+        # stride=dataset_config["eval_stride"],
+        stride=dataset_config["stride"],
         desired_height=dataset_config["desired_image_height"],
         desired_width=dataset_config["desired_image_width"],
         device=device,
@@ -399,7 +402,8 @@ def offline_splatting(config: dict):
     num_frames = dataset_config["num_frames"]
     if num_frames == -1:
         num_frames = len(dataset)
-    eval_num_frames = dataset_config["eval_num_frames"]
+    # eval_num_frames = dataset_config["eval_num_frames"]
+    eval_num_frames = dataset_config["num_frames"]
     if eval_num_frames == -1:
         eval_num_frames = len(eval_dataset)
     # Initialize Parameters, Optimizer & Canoncial Camera parameters
