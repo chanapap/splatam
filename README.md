@@ -1,69 +1,3 @@
-<!-- PROJECT LOGO -->
-
-<p align="center">
-
-  <h1 align="center">SplaTAM: Splat, Track & Map 3D Gaussians for Dense RGB-D SLAM</h1>
-  <h3 align="center">CVPR 2024</h3>
-  <p align="center">
-    <a href="https://nik-v9.github.io/"><strong>Nikhil Keetha</strong></a>
-    ·
-    <a href="https://jaykarhade.github.io/"><strong>Jay Karhade</strong></a>
-    ·
-    <a href="https://krrish94.github.io/"><strong>Krishna Murthy Jatavallabhula</strong></a>
-    ·
-    <a href="https://gengshan-y.github.io/"><strong>Gengshan Yang</strong></a>
-    ·
-    <a href="https://theairlab.org/team/sebastian/"><strong>Sebastian Scherer</strong></a>
-    <br>
-    <a href="https://www.cs.cmu.edu/~deva/"><strong>Deva Ramanan</strong></a>
-    ·
-    <a href="https://www.vision.rwth-aachen.de/person/216/"><strong>Jonathon Luiten</strong></a>
-  </p>
-  <h3 align="center"><a href="https://arxiv.org/pdf/2312.02126.pdf">Paper</a> | <a href="https://youtu.be/jWLI-OFp3qU">Video</a> | <a href="https://spla-tam.github.io/">Project Page</a></h3>
-  <div align="center"></div>
-</p>
-
-<p align="center">
-  <a href="">
-    <img src="./assets/1.gif" alt="Logo" width="100%">
-  </a>
-</p>
-
-<br>
-
-## Stay Tuned for a Faster and Better Variant of SplaTAM! 
-
-<!-- TABLE OF CONTENTS -->
-<details open="open" style='padding: 10px; border-radius:5px 30px 30px 5px; border-style: solid; border-width: 1px;'>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#installation">Installation</a>
-    </li>
-    <li>
-      <a href="#demo">Online Demo</a>
-    </li>
-    <li>
-      <a href="#usage">Usage</a>
-    </li>
-    <li>
-      <a href="#downloads">Downloads</a>
-    </li>
-    <li>
-      <a href="#benchmarking">Benchmarking</a>
-    </li>
-    <li>
-      <a href="#acknowledgement">Acknowledgement</a>
-    </li>
-    <li>
-      <a href="#citation">Citation</a>
-    </li>
-    <li>
-      <a href="#developers">Developers</a>
-    </li>
-  </ol>
-</details>
-
 ## Installation
 
 ##### (Recommended)
@@ -77,15 +11,16 @@ conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit
 pip install -r requirements.txt
 ```
 
-<!-- Alternatively, we also provide a conda environment.yml file :
-```bash
-conda env create -f environment.yml
-conda activate splatam
-``` -->
+## Our HCI Usage
+```
+use_gt_poses=True !!
+scripts/nerfcapture2dataset.py --config configs\iphone\custom_splatam.py
+scripts/splatam.py configs\iphone\custom_splatam.py
+scripts/export_ply.py configs\iphone\custom_splatam.py
+scripts/post_splatam.py configs\iphone\custom_splatam.py
+scripts/gaussian_splatting.py configs\iphone\custom_splatam.py
+```
 
-#### Windows
-
-For installation on Windows using Git bash, please refer to the [instructions shared in Issue#9](https://github.com/spla-tam/SplaTAM/issues/9#issuecomment-1848348403).
 
 #### Docker and Singularity Setup
 
