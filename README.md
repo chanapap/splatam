@@ -12,17 +12,27 @@ pip install -r requirements.txt
 ```
 
 ## Our HCI Usage
+
+### Offline + 3DGS
+
 ```
-use_gt_poses=True !!
 scripts/nerfcapture2dataset.py --config configs\iphone\custom_splatam.py
 scripts/splatam.py configs\iphone\custom_splatam.py
+viz_scripts/final_recon.py configs\iphone\custom_splatam.py
+
 scripts/export_ply.py configs\iphone\custom_splatam.py
 scripts/post_splatam.py configs\iphone\custom_splatam.py
 scripts/gaussian_splatting.py configs\iphone\custom_splatam.py
 ```
 
+### Online
 
-#### Docker and Singularity Setup
+```
+bash_scripts\online_demo.bash --config configs\iphone\custom_splatam.py
+```
+
+
+<!-- #### Docker and Singularity Setup
 
 We also provide a docker image. We recommend using a venv to run the code inside a docker image:
 
@@ -52,7 +62,7 @@ cd venv
 virtualenv --system-site-packages splatam
 source ./splatam/bin/activate
 pip install -r venv_requirements.txt
-```
+``` -->
 
 ## Demo
 
@@ -132,7 +142,7 @@ To run 3D Gaussian Splatting on a dataset using ground truth poses, please use t
 python scripts/gaussian_splatting.py configs/iphone/gaussian_splatting.py
 ```
 
-## Downloads
+<!-- ## Downloads
 
 DATAROOT is `./data` by default. Please change the `input_folder` path in the scene-specific config files if datasets are stored somewhere else on your machine.
 
@@ -314,4 +324,4 @@ If you find our paper and code useful, please cite us:
 - [JayKarhade](https://github.com/JayKarhade) ([Jay Karhade](https://jaykarhade.github.io/))
 - [JonathonLuiten](https://github.com/JonathonLuiten) ([Jonathan Luiten](https://www.vision.rwth-aachen.de/person/216/))
 - [krrish94](https://github.com/krrish94) ([Krishna Murthy Jatavallabhula](https://krrish94.github.io/))
-- [gengshan-y](https://github.com/gengshan-y) ([Gengshan Yang](https://gengshan-y.github.io/))
+- [gengshan-y](https://github.com/gengshan-y) ([Gengshan Yang](https://gengshan-y.github.io/)) -->
